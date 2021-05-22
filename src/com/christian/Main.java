@@ -41,25 +41,25 @@ public class Main {
         IntPredicate lessThan100= i -> i<100;
 
         //Need to call test func in predicate for it to run
-        System.out.println(greaterThan15.test(10));
+       // System.out.println(greaterThan15.test(10));
 
         //Can chain predicates and put variable expressions.
         int a=15;
-        System.out.println(greaterThan15.and(lessThan100).test(a+40));
+        //System.out.println(greaterThan15.and(lessThan100).test(a+40));
 
         //Supplier
-        System.out.println("\nUSING SUPPLIER");
+        //System.out.println("\nUSING SUPPLIER");
         Random random= new Random();
         Supplier<Integer> randomSupplier= ()-> random.nextInt(1000);
-        for(int i=0; i<10;i++){
-            System.out.println(randomSupplier.get());
-        }
+//        for(int i=0; i<10;i++){
+//            System.out.println(randomSupplier.get());
+//        }
 
-        System.out.println("~~~~~~~~~~~");
-        System.out.println("USING TRADITIONAL");
-        for(int i=0; i<10;i++){
-            System.out.println(random.nextInt(1000));
-        }
+//        System.out.println("~~~~~~~~~~~");
+//        System.out.println("USING TRADITIONAL");
+//        for(int i=0; i<10;i++){
+//            System.out.println(random.nextInt(1000));
+//        }
 
 
         //Function example
@@ -106,9 +106,14 @@ public class Main {
 
 
         String upperName= upperCase.apply(employees.get(4));
-        System.out.println(concatAge.apply(upperName,employees.get(4)));
+        //System.out.println(concatAge.apply(upperName,employees.get(4)));
 
-        System.out.println(chainFunc.apply(employees.get(4)));
+       // System.out.println(chainFunc.apply(employees.get(4)));
+
+
+        IntUnaryOperator incBy5= i-> i+5;
+        System.out.println(incBy5.applyAsInt(100));
+
 
     }
 
