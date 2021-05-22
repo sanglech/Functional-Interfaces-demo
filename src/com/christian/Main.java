@@ -3,10 +3,7 @@ package com.christian;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
-import java.util.function.IntPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Main {
 
@@ -97,6 +94,21 @@ public class Main {
 //            }
 //        }
 
+
+        //Chaining Fucntions
+        Function<Employee,String>  upperCase= employee -> employee.getName().toUpperCase();
+        Function<String,String> concat= name->name.substring(0,name.indexOf(' '));
+        Function chainFunc=upperCase.andThen(concat);
+
+        BiFunction<String,Employee,String> concatAge= (String name,Employee tempEmp) -> {
+          return name.concat(" "+tempEmp.getAge());
+        };
+
+
+        String upperName= upperCase.apply(employees.get(4));
+        System.out.println(concatAge.apply(upperName,employees.get(4)));
+
+        System.out.println(chainFunc.apply(employees.get(4)));
 
     }
 
