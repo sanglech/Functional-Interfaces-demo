@@ -2,8 +2,10 @@ package com.christian;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -46,6 +48,20 @@ public class Main {
         //Can chain predicates and put variable expressions.
         int a=15;
         System.out.println(greaterThan15.and(lessThan100).test(a+40));
+
+        //Supplier
+        System.out.println("\nUSING SUPPLIER");
+        Random random= new Random();
+        Supplier<Integer> randomSupplier= ()-> random.nextInt(1000);
+        for(int i=0; i<10;i++){
+            System.out.println(randomSupplier.get());
+        }
+
+        System.out.println("~~~~~~~~~~~");
+        System.out.println("USING TRADITIONAL");
+        for(int i=0; i<10;i++){
+            System.out.println(random.nextInt(1000));
+        }
 
 
         //System.out.println("Employees over 30");
